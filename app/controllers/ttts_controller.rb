@@ -5,11 +5,7 @@ class TttsController < ApplicationController
   end
 
   def show
-    @tttgrid = [
-      ["", "", ""],
-      ["", "", ""],
-      ["", "", ""]
-      ]
+    @showgrid = Ttt.split_grid
 
   end
 

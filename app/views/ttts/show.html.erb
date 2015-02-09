@@ -2,6 +2,7 @@
   <% @showgrid.flatten.each_with_index do |value, index| %>
   <div class="grid-separator">
     <%= radio_button_tag(:index, index)%>
+    <%= value %>
   </div>
   <% end %>
   <%= f.submit 'Choose your square!' %>

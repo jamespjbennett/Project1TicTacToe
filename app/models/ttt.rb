@@ -4,16 +4,26 @@ class Ttt < ActiveRecord::Base
   belongs_to :player_two_id, class_name: 'User'
 
   @tttgrid = ["","","","","", "","","",""]
+  @player_one_array = []
    
   def self.show_grid
     @tttgrid
-  end   
+  end 
+
 
   def self.split_grid
       @tttgrid.each do |grid|
         grid
       end
   end
+
+
+
+  def self.player_moves
+    @player_one_array
+  end
+
+
 
   
 end

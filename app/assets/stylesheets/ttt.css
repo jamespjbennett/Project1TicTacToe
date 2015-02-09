@@ -6,7 +6,7 @@
 .grid-separator {
   margin: 0 auto;
   display: inline-block;
-  width: 250px;
-  height :250px;
+  width: 230px;
+  height :230px;
   border: thick solid black;
 }

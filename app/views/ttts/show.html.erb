@@ -1,3 +1,4 @@
-<% @showgrid.flatten.each do |grid| %>
-<div class ="grid-separator"><%= grid %></div>
+<% @showgrid.flatten.each_with_index do |value, index| %>
+<!-- form_for(grid) -->
+<div class ="grid-separator"><%= index %></div>
 <% end %>

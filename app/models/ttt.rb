@@ -4,7 +4,10 @@ class Ttt < ActiveRecord::Base
   belongs_to :player_two_id, class_name: 'User'
 
   @tttgrid = ["","","","","", "","","",""]
-      
+   
+  def self.show_grid
+    @tttgrid
+  end   
 
   def self.split_grid
       @tttgrid.each do |grid|

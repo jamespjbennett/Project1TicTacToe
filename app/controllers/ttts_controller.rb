@@ -9,5 +9,9 @@ class TttsController < ApplicationController
     @showgrid = Ttt.split_grid
   end
 
+  def update
+    binding.pry
+  end
+
 
 end

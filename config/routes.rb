@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :homes
+  resources :ttts
 
   root 'homes#index'
 

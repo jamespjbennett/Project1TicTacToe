@@ -1,0 +1,12 @@
+.container {
+  width: 950px;
+  margin: 0 auto;
+}
+
+.grid-separator {
+  margin: 0 auto;
+  display: inline-block;
+  width: 250px;
+  height :250px;
+  border: thick solid black;
+}

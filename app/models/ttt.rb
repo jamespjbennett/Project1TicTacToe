@@ -4,8 +4,4 @@ class Ttt < ActiveRecord::Base
   belongs_to :player_two_id, class_name: 'User'
 
   
- 
-  @player_one_sequence = []
-
-
 end

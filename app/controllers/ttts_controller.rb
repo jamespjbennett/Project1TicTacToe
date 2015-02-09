@@ -10,7 +10,8 @@ class TttsController < ApplicationController
   end
 
   def update
-    Ttt.show_grid.delete_at(params[:index].to_i)
+    Ttt.show_grid[params[:index].to_i] = 'x'
+    binding.pry
     redirect_to ttt_path
   end
 

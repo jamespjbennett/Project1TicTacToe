@@ -5,7 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.integer :wins
+      t.integer :wins, default: 0
       t.integer :draws
       t.integer :losses
 

@@ -20,7 +20,6 @@ class TttsController < ApplicationController
   def show
     @game = Ttt.find(params[:id])
     @game.user = current_user
-    binding.pry
     @showgrid = Ttt.split_grid
   end
 
@@ -30,7 +29,9 @@ class TttsController < ApplicationController
     Ttt.player_moves << params[:index].to_i
 
     if Ttt.winner.include?(Ttt.player_moves.sort)
-      current_user.wins = current_user.wins + 1
+      user = current_user
+      user.wins.nil? ? user.wins = 1 : user.wins += 1
+      user.save
       render partial: 'winpage'  
     else
       redirect_to ttt_path

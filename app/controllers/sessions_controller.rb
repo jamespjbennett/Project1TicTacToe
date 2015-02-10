@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
   def new
     super
-      Ttt.create
+    Ttt.create
   end
 end

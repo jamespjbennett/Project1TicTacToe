@@ -4,21 +4,23 @@ class TttsController < ApplicationController
     @game = Ttt.new 
   end
 
-  def create
-    @game = Ttt.create
-    # @game.user_id = current_user.id
-    # @game.player_two_id = params sfgsfg
+  # def create
+  #   @game = Ttt.create
+  #   # @game.user_id = current_user.id
+  #   # @game.player_two_id = params sfgsfg
 
-    if @game.save
-      redirect_to ttt_path(@game)
-    else
-      render 'new'
-    end
+  #   if @game.save
+  #     redirect_to ttt_path(@game)
+  #   else
+  #     render 'new'
+  #   end
     
-  end
+  # end
 
   def show
     @game = Ttt.find(params[:id])
+    @game.user = current_user
+    binding.pry
     @showgrid = Ttt.split_grid
   end
 
@@ -28,6 +30,7 @@ class TttsController < ApplicationController
     Ttt.player_moves << params[:index].to_i
 
     if Ttt.winner.include?(Ttt.player_moves.sort)
+      current_user.wins = current_user.wins + 1
       render partial: 'winpage'  
     else
       redirect_to ttt_path

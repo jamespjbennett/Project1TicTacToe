@@ -48,6 +48,11 @@ class TttsController < ApplicationController
           user.save
           Ttt.reset_grid
           render partial: 'losepage'
+        when Ttt.show_grid.exclude?("")
+          user = current_user
+          user.draws.nil? ? user.draws = 1 : user.draws += 1
+          Ttt.reset_grid
+          render partial: 'drawpage'
         else
         redirect_to ttt_path
       end

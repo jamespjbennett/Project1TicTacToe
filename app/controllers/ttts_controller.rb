@@ -24,8 +24,9 @@ class TttsController < ApplicationController
   end
 
   def update
-    @player_one_array = []
-    Ttt.show_grid[params[:index].to_i] = 'x'
+    # Ttt.next_player
+    # @player_one_array = []
+    Ttt.show_grid[params[:index].to_i] = Ttt.next_player
     Ttt.player_moves << params[:index].to_i
 
     if Ttt.winner.include?(Ttt.player_moves.sort)

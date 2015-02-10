@@ -4,6 +4,9 @@ class Ttt < ActiveRecord::Base
 
   @tttgrid = ["","","","","", "","","",""]
   @player_one_array = []
+  @count = 1
+  @player_one = 'X'
+  @player_two = '0'
   
   #set the winning lines
 
@@ -39,6 +42,16 @@ class Ttt < ActiveRecord::Base
   def self.reset_grid
     @tttgrid = ["","","","","", "","","",""]
     @player_one_array = []
+  end
+
+  def self.next_player
+    if @count % 2 != 0
+      @count += 1
+      @player_one
+    else
+      @count += 1
+      @player_two
+    end
   end
  
 end

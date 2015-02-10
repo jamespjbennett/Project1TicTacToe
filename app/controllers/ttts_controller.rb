@@ -32,6 +32,7 @@ class TttsController < ApplicationController
       user = current_user
       user.wins.nil? ? user.wins = 1 : user.wins += 1
       user.save
+      Ttt.reset_grid
       render partial: 'winpage'  
     else
       redirect_to ttt_path

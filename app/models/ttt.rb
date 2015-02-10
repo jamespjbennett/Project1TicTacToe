@@ -35,5 +35,10 @@ class Ttt < ActiveRecord::Base
   def self.player_moves
     @player_one_array
   end
+
+  def self.reset_grid
+    @tttgrid = ["","","","","", "","","",""]
+    @player_one_array = []
+  end
  
 end

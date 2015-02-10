@@ -24,20 +24,33 @@ class TttsController < ApplicationController
   end
 
   def update
-    # Ttt.next_player
-    # @player_one_array = []
-    Ttt.show_grid[params[:index].to_i] = Ttt.next_player
-    Ttt.player_moves << params[:index].to_i
 
-    if Ttt.winner.include?(Ttt.player_moves.sort)
-      user = current_user
-      user.wins.nil? ? user.wins = 1 : user.wins += 1
-      user.save
-      Ttt.reset_grid
-      render partial: 'winpage'  
-    else
-      redirect_to ttt_path
-    end
+    @player_value = Ttt.show_grid[params[:index].to_i] = Ttt.next_player
+
+      if @player_value == 'X'
+        Ttt.player_one_moves << params[:index].to_i
+      else
+        Ttt.player_two_moves << params[:index].to_i
+      end
+
+      
+    
+      case
+        when Ttt.winner.include?(Ttt.player_one_moves.sort)
+          user = current_user
+          user.wins.nil? ? user.wins = 1 : user.wins += 1
+          user.save
+          Ttt.reset_grid
+          render partial: 'winpage'  
+        when Ttt.winner.include?(Ttt.player_two_moves.sort)
+          user = current_user
+          user.losses.nil? ? user.losses = 1 : user.losses += 1
+          user.save
+          Ttt.reset_grid
+          render partial: 'losepage'
+        else
+        redirect_to ttt_path
+      end
   end
 
 

@@ -6,6 +6,7 @@ class Ttt < ActiveRecord::Base
 
   @tttgrid = ["","","","","", "","","",""]
   @player_one_array = []
+  @player_two_array = []
   @count = 1
   @player_one = 'X'
   @player_two = '0'
@@ -39,10 +40,14 @@ class Ttt < ActiveRecord::Base
       end
   end
 
-  #makes the player_one array avaialable to add to so a winning combination can be matched.
+  #makes the player one and two array avaialable to add to so a winning combination can be matched.
 
-  def self.player_moves
+  def self.player_one_moves
     @player_one_array
+  end
+
+  def self.player_two_moves
+    @player_two_array
   end
 
   #after game is completed, this method resets the grid to original values
@@ -53,7 +58,8 @@ class Ttt < ActiveRecord::Base
   end
 
   #selects the next player in the form of alternating X or 0 inputs based on the current count value
-  
+
+
   def self.next_player
     if @count % 2 != 0
       @count += 1

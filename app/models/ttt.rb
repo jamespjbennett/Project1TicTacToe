@@ -2,6 +2,8 @@ class Ttt < ActiveRecord::Base
   has_many :moves
   belongs_to :user
 
+  #define the variables which will be used within the class methods
+
   @tttgrid = ["","","","","", "","","",""]
   @player_one_array = []
   @count = 1
@@ -22,11 +24,14 @@ class Ttt < ActiveRecord::Base
       [6, 7, 8]
     ]
   end
-   
+  
+  #take the grid array so it can manipulated in the update method
+
   def self.show_grid
     @tttgrid
   end 
 
+  #split the grid array up so it's presented on the showpage
 
   def self.split_grid
       @tttgrid.each do |grid|
@@ -34,16 +39,21 @@ class Ttt < ActiveRecord::Base
       end
   end
 
+  #makes the player_one array avaialable to add to so a winning combination can be matched.
 
   def self.player_moves
     @player_one_array
   end
+
+  #after game is completed, this method resets the grid to original values
 
   def self.reset_grid
     @tttgrid = ["","","","","", "","","",""]
     @player_one_array = []
   end
 
+  #selects the next player in the form of alternating X or 0 inputs based on the current count value
+  
   def self.next_player
     if @count % 2 != 0
       @count += 1

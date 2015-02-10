@@ -13,10 +13,9 @@ class TttsController < ApplicationController
     @player_one_array = []
     Ttt.show_grid[params[:index].to_i] = 'x'
     Ttt.player_moves << params[:index].to_i
-    binding.pry
 
-    if Ttt.player_moves.sort == Ttt.winner 
-      redirect_to new_ttt_path  
+    if Ttt.winner.include?(Ttt.player_moves.sort)
+      render :partial 'winpage'  
     else
       redirect_to ttt_path
     end

@@ -15,7 +15,7 @@ class TttsController < ApplicationController
     Ttt.player_moves << params[:index].to_i
     binding.pry
 
-    if Ttt.player_moves == Ttt.winner 
+    if Ttt.player_moves.sort == Ttt.winner 
       redirect_to new_ttt_path  
     else
       redirect_to ttt_path

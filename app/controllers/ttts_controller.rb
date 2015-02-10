@@ -6,11 +6,11 @@ class TttsController < ApplicationController
 
   def create
     @game = Ttt.create
-    @game.user_id = current_user.id
+    # @game.user_id = current_user.id
     # @game.player_two_id = params sfgsfg
 
     if @game.save
-      redirect_to ttt_path(ttt)
+      redirect_to ttt_path(@game)
     else
       render 'new'
     end

@@ -1,8 +1,11 @@
-<%#= form_for @game do |f| %>
-  <!-- <p><%#=f.label :computer %></p>
-  <p><%#=f.text_field :computer %></p>
+<h3>Welcome to Noughts and Croissants!</h3>
 
-  <%#=#f.hidden_field :user_id, :value => current_user.id %>
+<p>Would you like to play against the computer or against your friend? Type 1 for computer and nothing for friend</p>
 
-  <p><%#= f.submit 'Start game!!' %></p> -->
-<%# end %>
+<p><%= form_for @game do |f| %></p>
+  <p><%= f.label :computer %></p>
+  <p><%= f.text_field :computer  %></p>
+  <%= f.submit %>
+<% end %>
+
+

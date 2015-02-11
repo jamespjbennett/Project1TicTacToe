@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     # resource == current_user
-    root_path
+    new_ttt_path
   end
 
   def after_sign_out_path_for(resource)

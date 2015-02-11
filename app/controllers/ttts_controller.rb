@@ -4,18 +4,17 @@ class TttsController < ApplicationController
     @game = Ttt.new 
   end
 
-  # def create
-  #   @game = Ttt.create
-  #   # @game.user_id = current_user.id
-  #   # @game.player_two_id = params sfgsfg
+  def create
+    @game = Ttt.create(ttt_params)
+    @game.user current_user
 
-  #   if @game.save
-  #     redirect_to ttt_path(@game)
-  #   else
-  #     render 'new'
-  #   end
+    if @game.save
+      redirect_to ttt_path(@game)
+    else
+      render 'new'
+    end
     
-  # end
+  end
 
   def show
     @game = Ttt.find(params[:id])
@@ -27,20 +26,13 @@ class TttsController < ApplicationController
 
     @player_value = Ttt.show_grid[params[:index].to_i] = Ttt.next_player
 
-      # if @player_value == 'X'
-      #   Ttt.player_one_moves << params[:index].to_i
-
-      # else
-      #   Ttt.player_two_moves << params[:index].to_i
-      # end
-
     case 
-      when (@player_value == 'X') && (Ttt.last.computer = 1)
+      when (@player_value == 'X') && (Ttt.last.computer == 1)
         Ttt.player_one_moves << params[:index].to_i
         Ttt.computer_choice
-      when (@player_value == 'X') && (Ttt.computer = nil)
+      when (@player_value == 'X') && (Ttt.computer == nil)
         Ttt.player_one_moves << params[:index].to_i
-      when (@player_value == '0') && (Ttt.computer = nil)
+      when (@player_value == '0') && (Ttt.computer == nil)
         Ttt.player_two_moves << params[:index].to_i   
     end
    
@@ -71,6 +63,11 @@ class TttsController < ApplicationController
       else
       redirect_to ttt_path
     end
+  end
+
+  private
+  def ttt_params
+    params.require(:ttt).permit(:computer )
   end
 
 

@@ -56,12 +56,13 @@ class Ttt < ActiveRecord::Base
     @computer_array
   end
 
+  #after user has placed move v computer, the below method takes a random sample of all index values and
+
   def self.computer_choice
     number = [0, 1, 2, 3, 4, 5, 6, 7, 8].sample
     if @tttgrid[number] == ""
       @tttgrid[number] = "0"
       self.computer_moves << number
-      binding.pry
     else
       self.computer_choice
     end

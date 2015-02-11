@@ -63,6 +63,7 @@ class Ttt < ActiveRecord::Base
     else
       self.computer_choice
     end
+      # self.computer_choice << @computer_array
   end
 
   #after game is completed, these set the reset methods so that

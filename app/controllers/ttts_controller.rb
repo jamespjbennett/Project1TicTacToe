@@ -38,7 +38,7 @@ class TttsController < ApplicationController
       when (@player_value == 'X') && (Ttt.last.computer = 1)
         Ttt.player_one_moves << params[:index].to_i
         Ttt.computer_choice
-        Ttt.computer_moves << Ttt.computer_choice
+        # Ttt.computer_moves << Ttt.computer_choice
       when (@player_value == 'X') && (Ttt.computer = nil)
         Ttt.player_one_moves << params[:index].to_i
       when (@player_value == '0') && (Ttt.computer = nil)

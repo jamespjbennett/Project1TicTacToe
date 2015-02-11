@@ -54,11 +54,21 @@ class Ttt < ActiveRecord::Base
 
   def self.reset_grid
     @tttgrid = ["","","","","", "","","",""]
+  end
+
+  def self.reset_player_one_moves
     @player_one_array = []
   end
 
-  #selects the next player in the form of alternating X or 0 inputs based on the current count value
+  def self.reset_player_two_moves
+    @player_two_array = []
+  end
 
+  #selects the next player in the form of alternating X or 0 inputs based on the current count value
+ 
+  def self.reset_counter
+    @count = 1
+  end
 
   def self.next_player
     if @count % 2 != 0

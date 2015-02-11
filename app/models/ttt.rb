@@ -70,6 +70,12 @@ class Ttt < ActiveRecord::Base
     @count = 1
   end
 
+  def self.reset_all
+    self.reset_grid
+    self.reset_player_one_moves
+    self.reset_player_two_moves
+  end
+
   def self.next_player
     if @count % 2 != 0
       @count += 1

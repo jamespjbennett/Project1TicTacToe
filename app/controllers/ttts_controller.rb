@@ -39,27 +39,18 @@ class TttsController < ApplicationController
           user = current_user
           user.wins.nil? ? user.wins = 1 : user.wins += 1
           user.save
-          Ttt.reset_grid
-          Ttt.reset_counter
-          Ttt.reset_player_one_moves
-          Ttt.reset_player_two_moves
+          Ttt.reset_all
           render partial: 'winpage'  
         when Ttt.winner.include?(Ttt.player_two_moves.sort)
           user = current_user
           user.losses.nil? ? user.losses = 1 : user.losses += 1
           user.save
-          Ttt.reset_grid
-          Ttt.reset_counter
-          Ttt.reset_player_one_moves
-          Ttt.reset_player_two_moves
+          Ttt.reset_all
           render partial: 'losepage'
         when Ttt.show_grid.exclude?("")
           user = current_user
           user.draws.nil? ? user.draws = 1 : user.draws += 1
-          Ttt.reset_grid
-          Ttt.reset_counter
-          Ttt.reset_player_one_moves
-          Ttt.reset_player_two_moves
+          Ttt.reset_all
           render partial: 'drawpage'
         else
         redirect_to ttt_path

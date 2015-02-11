@@ -35,13 +35,13 @@ class TttsController < ApplicationController
 
      
       case
-        when Ttt.winner.include?(Ttt.player_one_moves.sort)
+        when (Ttt.winner & Ttt.player_one_moves.combination(3).to_a).count == 1
           user = current_user
           user.wins.nil? ? user.wins = 1 : user.wins += 1
           user.save
           Ttt.reset_all
           render partial: 'winpage'  
-        when Ttt.winner.include?(Ttt.player_two_moves.sort)
+        when (Ttt.winner & Ttt.player_two_moves.combination(3).to_a).count == 1
           user = current_user
           user.losses.nil? ? user.losses = 1 : user.losses += 1
           user.save

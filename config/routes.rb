@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     registrations: 'registrations',
     sessions: 'sessions'
   }
+
+  resources :users, only: [:index]
   resources :homes
   resources :ttts
 

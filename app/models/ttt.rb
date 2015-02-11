@@ -7,10 +7,11 @@ class Ttt < ActiveRecord::Base
   @tttgrid = ["","","","","", "","","",""]
   @player_one_array = []
   @player_two_array = []
-  @computer_array
+  @computer_array = []
   @count = 1
   @player_one = 'X'
   @player_two = '0'
+  @computer = '0'
   
   #set the winning lines
 
@@ -55,6 +56,15 @@ class Ttt < ActiveRecord::Base
     @computer_array
   end
 
+  def self.computer_choice
+    number = [0, 1, 2, 3, 4, 5, 6, 7, 8].sample
+    if @tttgrid[number] == ""
+      @tttgrid[number] == "0"
+    else
+      self.computer_choice
+    end
+  end
+
   #after game is completed, these set the reset methods so that
 
   def self.reset_grid
@@ -84,12 +94,18 @@ class Ttt < ActiveRecord::Base
   #selects the next player in the form of alternating X or 0 inputs based on the current count value
 
   def self.next_player
-    if @count % 2 != 0
-      @count += 1
-      @player_one
+    if Ttt.last.computer == nil
+      if @count % 2 != 0
+         @count += 1
+         @player_one
+      else
+        @count += 1
+        @player_two
+      end
     else
-      @count += 1
-      @player_two
+      if @count % 2 != 0
+         @player_one
+      end    
     end
   end
  

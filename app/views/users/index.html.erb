@@ -1,25 +1,20 @@
-<ul>
-  <% @users.each do |user| %>
-    <table class='user-table'>
+<% @users.order("wins desc").each do |user| %>
+  <table class='user-table'>
+    <% if user.wins != nil %>
       <th>Username</th>
       <th>Email</th>
       <th>Number of Wins</th>
+      <th>Number of Losses</th>
+      <th>Number of Draws</th>
       <tr>
         <td></td>
         <td><%= user.email %></td>
         <td><%= user.wins %></td>
+        <td><%= user.losses %></td>
+        <td><%= user.draws %></td>
       </tr>
-    </table>
-  <% end %>
-</ul>
+    <% end %>
+  </table>
+<% end %>
 
-<!-- <table border="1">
-<tr>
-<td>Row 1, Column 1</td>
-<td>Row 1, Column 2</td>
-</tr>
-<tr>
-<td>Row 2, Column 1</td>
-<td>Row 2, Column 2</td>
-</tr>
-</table> -->
+

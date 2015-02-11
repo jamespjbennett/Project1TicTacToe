@@ -52,6 +52,7 @@ class TttsController < ApplicationController
       when Ttt.show_grid.exclude?("")
         user = current_user
         user.draws.nil? ? user.draws = 1 : user.draws += 1
+        user.save
         Ttt.reset_all
         render partial: 'drawpage'
       when (Ttt.winner & Ttt.computer_moves.combination(3).to_a).count == 1

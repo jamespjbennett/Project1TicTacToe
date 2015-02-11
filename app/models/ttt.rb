@@ -59,7 +59,7 @@ class Ttt < ActiveRecord::Base
   def self.computer_choice
     number = [0, 1, 2, 3, 4, 5, 6, 7, 8].sample
     if @tttgrid[number] == ""
-      @tttgrid[number] == "0"
+      @tttgrid[number] = "0"
     else
       self.computer_choice
     end

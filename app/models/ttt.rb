@@ -7,6 +7,7 @@ class Ttt < ActiveRecord::Base
   @tttgrid = ["","","","","", "","","",""]
   @player_one_array = []
   @player_two_array = []
+  @computer_array
   @count = 1
   @player_one = 'X'
   @player_two = '0'
@@ -50,7 +51,11 @@ class Ttt < ActiveRecord::Base
     @player_two_array
   end
 
-  #after game is completed, this method resets the grid to original values
+  def self.computer_moves
+    @computer_array
+  end
+
+  #after game is completed, these set the reset methods so that
 
   def self.reset_grid
     @tttgrid = ["","","","","", "","","",""]
@@ -64,7 +69,6 @@ class Ttt < ActiveRecord::Base
     @player_two_array = []
   end
 
-  #selects the next player in the form of alternating X or 0 inputs based on the current count value
  
   def self.reset_counter
     @count = 1
@@ -74,7 +78,10 @@ class Ttt < ActiveRecord::Base
     self.reset_grid
     self.reset_player_one_moves
     self.reset_player_two_moves
+    self.reset_counter
   end
+
+  #selects the next player in the form of alternating X or 0 inputs based on the current count value
 
   def self.next_player
     if @count % 2 != 0

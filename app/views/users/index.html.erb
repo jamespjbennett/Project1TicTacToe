@@ -1,0 +1,25 @@
+<ul>
+  <% @users.each do |user| %>
+    <table class='user-table'>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Number of Wins</th>
+      <tr>
+        <td></td>
+        <td><%= user.email %></td>
+        <td><%= user.wins %></td>
+      </tr>
+    </table>
+  <% end %>
+</ul>
+
+<!-- <table border="1">
+<tr>
+<td>Row 1, Column 1</td>
+<td>Row 1, Column 2</td>
+</tr>
+<tr>
+<td>Row 2, Column 1</td>
+<td>Row 2, Column 2</td>
+</tr>
+</table> -->

@@ -1,9 +1,13 @@
 <%= form_for(@game) do |f| %>
   <% @showgrid.flatten.each_with_index do |value, index| %>
-  <div class="grid-separator">
-    <%= radio_button_tag(:index, index)%>
-    <%= value %>
-  </div>
+    <div class="grid-separator">
+      <% if value == ""%>
+        <%= radio_button_tag(:index, index)%>
+        <%= value %>
+      <% else %>
+        <%= value %>
+      <% end %>
+    </div>
   <% end %>
   <%= f.submit 'Choose your square!' %>
 <% end %>

@@ -38,7 +38,6 @@ class TttsController < ApplicationController
       when (@player_value == 'X') && (Ttt.last.computer = 1)
         Ttt.player_one_moves << params[:index].to_i
         Ttt.computer_choice
-        # Ttt.computer_moves << Ttt.computer_choice
       when (@player_value == 'X') && (Ttt.computer = nil)
         Ttt.player_one_moves << params[:index].to_i
       when (@player_value == '0') && (Ttt.computer = nil)
@@ -63,6 +62,12 @@ class TttsController < ApplicationController
         user.draws.nil? ? user.draws = 1 : user.draws += 1
         Ttt.reset_all
         render partial: 'drawpage'
+      when (Ttt.winner & Ttt.computer_moves.combination(3).to_a).count == 1
+        user = current_user
+        user.losses.nil? ? user.losses = 1 : user.losses += 1
+        user.save
+        Ttt.reset_all
+        render partial: 'losepage'
       else
       redirect_to ttt_path
     end

@@ -60,11 +60,14 @@ class Ttt < ActiveRecord::Base
     number = [0, 1, 2, 3, 4, 5, 6, 7, 8].sample
     if @tttgrid[number] == ""
       @tttgrid[number] = "0"
+      self.computer_moves << number
+      binding.pry
     else
       self.computer_choice
     end
-      # self.computer_choice << @computer_array
   end
+
+ 
 
   #after game is completed, these set the reset methods so that
 
@@ -80,6 +83,10 @@ class Ttt < ActiveRecord::Base
     @player_two_array = []
   end
 
+  def self.reset_computer_moves
+    @computer_moves = []
+  end
+
  
   def self.reset_counter
     @count = 1
@@ -90,6 +97,7 @@ class Ttt < ActiveRecord::Base
     self.reset_player_one_moves
     self.reset_player_two_moves
     self.reset_counter
+    self.reset_computer_moves
   end
 
   #selects the next player in the form of alternating X or 0 inputs based on the current count value

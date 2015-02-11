@@ -37,13 +37,13 @@ class TttsController < ApplicationController
     end
    
     case
-      when (Ttt.winner & Ttt.player_one_moves.combination(3).to_a).count == 1
+      when (Ttt.winner & Ttt.player_one_moves.sort.combination(3).to_a).count == 1
         user = current_user
         user.wins.nil? ? user.wins = 1 : user.wins += 1
         user.save
         Ttt.reset_all
         render partial: 'winpage'  
-      when (Ttt.winner & Ttt.player_two_moves.combination(3).to_a).count == 1
+      when (Ttt.winner & Ttt.player_two_moves.sort.combination(3).to_a).count == 1
         user = current_user
         user.losses.nil? ? user.losses = 1 : user.losses += 1
         user.save
@@ -55,7 +55,7 @@ class TttsController < ApplicationController
         user.save
         Ttt.reset_all
         render partial: 'drawpage'
-      when (Ttt.winner & Ttt.computer_moves.combination(3).to_a).count == 1
+      when (Ttt.winner & Ttt.computer_moves.sort.combination(3).to_a).count == 1
         user = current_user
         user.losses.nil? ? user.losses = 1 : user.losses += 1
         user.save

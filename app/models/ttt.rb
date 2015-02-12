@@ -12,7 +12,6 @@ class Ttt < ActiveRecord::Base
   @player_one = 'X'
   @player_two = '0'
   @computer = '0'
-  @current_player = ""
   
   #set the winning lines
 
@@ -86,7 +85,7 @@ class Ttt < ActiveRecord::Base
   end
 
   def self.reset_computer_moves
-    @computer_moves = []
+    @computer_array = []
   end
 
  
@@ -108,7 +107,6 @@ class Ttt < ActiveRecord::Base
     if Ttt.last.computer == nil
       if @count % 2 != 0
          @count += 1
-         @current_player = "X"
          @player_one
       else
         @count += 1
@@ -116,7 +114,6 @@ class Ttt < ActiveRecord::Base
       end
     else
       if @count % 2 != 0
-         @current_player = '0'
          @player_one
 
       end    

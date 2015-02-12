@@ -23,7 +23,6 @@ class TttsController < ApplicationController
   end
 
   def update
-    binding.pry
 
     @player_value = Ttt.show_grid[params[:index].to_i] = Ttt.next_player
 

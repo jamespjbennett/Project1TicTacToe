@@ -11,6 +11,8 @@ th {
 
 td {
   border-bottom: thin dotted white;
+  font-size: 20px;
+  width: 170px;
 }
 
 .submit-new-game-button {

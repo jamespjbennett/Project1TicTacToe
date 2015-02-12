@@ -15,11 +15,14 @@
       <% end %>
     <% end %>
   <% elsif @status == 'win' %>
-    <h3>YOU WINNNNN!!!</h3>
+    <h3> YOU WIN!!!</h3>
+      <%= render partial: 'results_display' %>
   <% elsif @status == 'draw' %>
-    <h3>YOU drraawww!!!</h3>
+    <h3>YOU DREW!!!</h3>
+      <%= render partial: 'results_display' %>
   <% elsif @status == 'loss' %>
-    <h3>YOU loossseees!!!</h3>
+    <h3>YOU LOSE!!!</h3>
+    <%= render partial: 'results_display' %>
   <% end %>
 </div>
 

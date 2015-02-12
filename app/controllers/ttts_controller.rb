@@ -1,7 +1,15 @@
 class TttsController < ApplicationController
 
+  def index
+    redirect_to new_ttt_path
+  end
+
   def new
-    @game = Ttt.new 
+    if user_signed_in? 
+      @game = Ttt.new 
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -17,14 +25,17 @@ class TttsController < ApplicationController
   end
 
   def show
-    @game = Ttt.find(params[:id])
-    @game.user = current_user
-    @showgrid = Ttt.split_grid
-    @status = Ttt.status
+    if user_signed_in?
+      @game = Ttt.find(params[:id])
+      @game.user = current_user
+      @showgrid = Ttt.split_grid
+      @status = Ttt.status
+    else
+      redirect_to root_path
+    end
   end
 
   def update
-
     @player_value = Ttt.show_grid[params[:index].to_i] = Ttt.next_player
 
     case 
@@ -49,21 +60,21 @@ class TttsController < ApplicationController
         user = current_user
         user.losses.nil? ? user.losses = 1 : user.losses += 1
         user.save
-        @status = 'loss'
+        Ttt.status = 'loss'
         Ttt.reset_all
         redirect_to ttt_path
       when Ttt.show_grid.exclude?("")
         user = current_user
         user.draws.nil? ? user.draws = 1 : user.draws += 1
         user.save
-        @status = 'draw'
+        Ttt.status = 'draw'
         Ttt.reset_all
         redirect_to ttt_path
       when (Ttt.winner & Ttt.computer_moves.sort.combination(3).to_a).count == 1
         user = current_user
         user.losses.nil? ? user.losses = 1 : user.losses += 1
         user.save
-        @status = 'loss'
+        Ttt.status = 'loss'
         Ttt.reset_all
         redirect_to ttt_path
       else

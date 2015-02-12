@@ -5,6 +5,7 @@
 
 .game-board {
   width: 350px;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .grid-separator {

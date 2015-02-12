@@ -38,12 +38,27 @@
 
  .nav-menu-links {
   font-size: 20px;
+  padding: 0;
+ }
+ .nav-menu-links li {
+  display: inline-block;
+  list-style: none;
+  padding-right: 10px;
+  border-right: thin dotted white;
  }
 
  .welcome-message {
-  background: grey;
-  padding: 10px;
-  border-radius: 20px;
+  margin-top: 76px;
+  display: inline-block;
+ }
+
+ .signin-form{
+   display: inline-block;
+   margin-left: 40px;
+ }
+
+ .signin-form li:hover {
+  background: #C43737;
  }
 
  a {
@@ -52,4 +67,9 @@
 
  a:visited {
   color: grey;
+ }
+
+ li {
+  list-style: none;
+  padding: 5px;
  }

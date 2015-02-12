@@ -1,11 +1,25 @@
-th {
-  border: thin solid black;
+.user-table {
+  width: 750px;
+  font-size: 15px;
+  padding: 10px;
+  text-align: left;
 }
-
-tr {
-  border: thin solid black;
+th {
+  border-bottom: thin solid white;
 }
 
 td {
-  border: thin solid black;
+  border-bottom: thin dotted white;
 }
+
+.submit-new-game-button {
+  width: 100px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.signup-list {
+  font-size: 20px;
+  display: inline-block;
+}
+

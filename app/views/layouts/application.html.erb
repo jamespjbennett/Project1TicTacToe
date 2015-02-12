@@ -15,8 +15,10 @@
       <h1 class='show-title'>CROSSES</h1>
       <% if user_signed_in? %>
         <div class='navmenu'>
-          <p class='nav-menu-links'><%= link_to('New Game', new_ttt_path) %>
-          <%= link_to('User Leaderboard', users_path) %></p>
+          <ul class='nav-menu-links'>
+            <li><%= link_to('New Game', new_ttt_path) %></li>
+            <li><%= link_to('User Leaderboard', users_path) %></li>
+          </ul>
         </div>
       <% end %>
     </header>

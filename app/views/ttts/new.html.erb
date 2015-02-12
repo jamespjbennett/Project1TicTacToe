@@ -1,10 +1,10 @@
-<h3>Welcome, <%= current_user.email %></h3>
+<h3 class='new-game'>Welcome, <%= current_user.email %></h3>
 
-<p>Would you like to play against the computer or against your friend? Type 1 for computer and nothing for friend</p>
+<p class='new-game'> Type 1 to play computer and anything else to play a friend</p>
 
-<p><%= form_for @game do |f| %></p>
-  <p><%= f.text_field :computer  %></p>
-  <%= f.submit 'Start game', :class => 'submit-new-game-button'%>
+<p class='new-game'><%= form_for @game do |f| %></p>
+  <p class='new-game'><%= f.text_field :computer  %></p>
+  <p class='new-game'><%= f.submit 'Start game', :class => 'submit-new-game-button'%></p>
 <% end %>
 
 

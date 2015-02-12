@@ -21,15 +21,15 @@
  }*/
 
  body {
-  font-family: sans-serif;
+  font-family: 'Dense', arial;
   background: black;
   color: white;
  
  }
 
  .show-title {
-  font-size: 50px;
-  margin: 2px;
+  font-size: 70px;
+  margin: 1px;
  }
 
  .navmenu {
@@ -48,13 +48,13 @@
  }
 
  .welcome-message {
+  font-family: 'Roboto Condensed', sans-serif;
   margin-top: 76px;
   display: inline-block;
  }
 
  .signin-form{
-   display: inline-block;
-   margin-left: 40px;
+  font-family: 'Roboto Condensed', sans-serif;
  }
 
  .signin-form li:hover {

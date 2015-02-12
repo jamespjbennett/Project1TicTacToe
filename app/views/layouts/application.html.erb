@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <!-- <link href='http://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'> -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div class="container">
@@ -16,8 +16,8 @@
       <% if user_signed_in? %>
         <div class='navmenu'>
           <ul class='nav-menu-links'>
-            <li><%= link_to('New Game', new_ttt_path) %></li>
-            <li><%= link_to('User Leaderboard', users_path) %></li>
+            <li><%= link_to('N E W  G A M E', new_ttt_path) %></li>
+            <li><%= link_to('L E A D E R B O A R D', users_path) %></li>
           </ul>
         </div>
       <% end %>

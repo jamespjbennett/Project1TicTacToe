@@ -118,5 +118,5 @@ class Ttt < ActiveRecord::Base
       end    
     end
   end
- 
+
 end

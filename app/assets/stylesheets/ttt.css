@@ -48,11 +48,11 @@
   display: none;
 }
 
-.radio-button:checked + label:after {
-  content: attr(data-player);
-  margin: 0 auto;
-  font-size: 60px;
+.radio-button:checked + label {
+  /*margin: 0 auto;*/
+  background: green;
+  /*font-size: 60px;
   text-align: center;
-  margin: 0;
+  margin: 0;*/
 }
 

@@ -15,14 +15,20 @@
  */
 
  
- body {
+/* body {
   font-family: 'Armata', sans-serif;
   background: #5B77A1;
+ }*/
+
+ body {
+  font-family: sans-serif;
+  background: black;
+  color: white;
+ 
  }
 
  .show-title {
   font-size: 50px;
-  padding: 10px;
  }
 
  .navmenu {
@@ -37,4 +43,8 @@
  .welcome-message {
   background: #C43737;
   padding: 10px;
+ }
+
+ a {
+  text-decoration: none;
  }

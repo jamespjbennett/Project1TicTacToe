@@ -4,7 +4,8 @@
     <div class="grid-separator">
       <% if value == ""%>
       <%= radio_button_tag(:index, index, false, class: 'radio-button')%>
-        <label for='index_<%=index%>' data-player='<%=@current_player %>' class='submit'></label>
+      <label for='index_<%=index%>'  class='submit'></label>
+        
         <p class='show-grid-value'><%= value %></p>
       <% else %>
         <span class='show-grid-value'><%= value %></span>

@@ -5,12 +5,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Armata' rel='stylesheet' type='text/css'> -->
 </head>
 <body>
   <div class="container">
     <header>
-      <h1 class='show-title'>NOUGHTS AND CROISSANTS</h1>
+      <h1 class='show-title'>NOUGHTS</h1>
+      <h1 class='show-title'>AND</h1>
+      <h1 class='show-title'>CROSSES</h1>
       <% if user_signed_in? %>
         <div class='navmenu'>
           <p class='nav-menu-links'><%= link_to('New Game', new_ttt_path) %>

@@ -29,7 +29,13 @@ td {
 }
 
 .field,
-.actions {
+.actions,
+.devise-links {
   margin-top: 10px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+
 }
 

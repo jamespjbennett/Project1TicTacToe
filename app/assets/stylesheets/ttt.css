@@ -4,6 +4,7 @@
 }
 
 .grid-separator {
+  text-align: center;
   margin: 0 auto;
   display: inline-block;
   width: 230px;
@@ -16,4 +17,16 @@
 .grid-separator:hover {
   background: #C35959;
 }
+
+.show-grid-value {
+  margin: 0 auto;
+  font-size: 60px;
+  text-align: center;
+  margin: 0;
+}
+
+/*.submit-move {
+  width: 100px;
+  color: green;
+}*/
 

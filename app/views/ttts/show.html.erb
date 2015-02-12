@@ -2,10 +2,10 @@
   <% @showgrid.flatten.each_with_index do |value, index| %>
     <div class="grid-separator">
       <% if value == ""%>
-        <%= radio_button_tag(:index, index)%>
-        <%= value %>
+        <%= radio_button_tag(:index, index, class: 'submit-move')%>
+        <p class='show-grid-value'><%= value %></p>
       <% else %>
-        <%= value %>
+        <p class='show-grid-value'><%= value %></p>
       <% end %>
     </div>
   <% end %>

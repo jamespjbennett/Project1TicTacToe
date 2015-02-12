@@ -4,7 +4,7 @@
 }
 
 .grid-separator {
-  position: relative;
+  vertical-align: top;
   text-align: center;
   margin: 0 auto;
   display: inline-block;
@@ -20,7 +20,6 @@
 }
 
 .show-grid-value {
-  position: absolute;
   margin: 0 auto;
   font-size: 60px;
   text-align: center;
@@ -47,5 +46,13 @@
 
 .radio-button {
   display: none;
+}
+
+.radio-button:checked + label:after {
+  content: attr(data-player);
+  margin: 0 auto;
+  font-size: 60px;
+  text-align: center;
+  margin: 0;
 }
 

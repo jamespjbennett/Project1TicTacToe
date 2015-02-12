@@ -3,8 +3,8 @@
   <% @showgrid.flatten.each_with_index do |value, index| %>
     <div class="grid-separator">
       <% if value == ""%>
-        <label for='index_<%=index%>' class='submit'></label>
-        <%= radio_button_tag(:index, index, false, class: 'radio-button')%>
+      <%= radio_button_tag(:index, index, false, class: 'radio-button')%>
+        <label for='index_<%=index%>' data-player='<%=@current_player %>' class='submit'></label>
         <p class='show-grid-value'><%= value %></p>
       <% else %>
         <span class='show-grid-value'><%= value %></span>

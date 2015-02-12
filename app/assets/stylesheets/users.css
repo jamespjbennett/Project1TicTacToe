@@ -23,3 +23,12 @@ td {
   display: inline-block;
 }
 
+.login-register-form {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.field,
+.actions {
+  margin-top: 10px;
+}
+

@@ -1,6 +1,10 @@
 .container {
-  width: 850px;
+  width: 900px;
   margin: 0 auto;
+}
+
+.game-board {
+  width: 350px;
 }
 
 .grid-separator {
@@ -8,8 +12,8 @@
   text-align: center;
   margin: 0 auto;
   display: inline-block;
-  width: 205px;
-  height: 205px;
+  width: 100px;
+  height: 100px;
   border: thick solid black;
   border-radius: 10px;
   background: #C43737;
@@ -31,10 +35,12 @@
 }
 
 .submit-button {
+  font-family: 'Roboto Condensed', sans-serif;
   margin: 0 auto;
   color: black;
   font-size: 20px;
   width: 200px;
+  cursor: pointer;
 }
 
 .submit {
@@ -59,4 +65,6 @@
 .new-game {
   font-family: 'Roboto Condensed', sans-serif;
 }
+
+
 

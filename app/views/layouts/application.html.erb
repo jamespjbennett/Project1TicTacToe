@@ -13,14 +13,19 @@
       <h1 class='show-title'>NOUGHTS</h1>
       <h1 class='show-title'>AND</h1>
       <h1 class='show-title'>CROSSES</h1>
-      <% if user_signed_in? %>
         <div class='navmenu'>
           <ul class='nav-menu-links'>
+          <% if user_signed_in? %>
             <li><%= link_to('N E W  G A M E', new_ttt_path) %></li>
             <li><%= link_to('L E A D E R B O A R D', users_path) %></li>
+            <li><%= link_to('H O M E', root_path) %></li>
+            <li><%= link_to('L O G O U T', destroy_user_session_path, :method => :delete) %></li>
+          <% else %>
+            <li><%= link_to('L O G I N', new_user_session_path)  %></li>
+            <li><%= link_to('R E G I S T E R', new_user_registration_path)  %></li>
+          <% end %>
           </ul>
         </div>
-      <% end %>
     </header>
     <%= yield %>
   </div>

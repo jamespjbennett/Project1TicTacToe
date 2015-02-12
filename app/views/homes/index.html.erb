@@ -3,8 +3,7 @@
     <h1> Start a <%=link_to 'New Game', new_ttt_path %> or check out the <%= link_to 'Leaderboard', users_path %>.</h1>
   </div>
 <% else %>
-  <h1> Login/signup to play</h1>
-  <div class='signin-form'>
-    <%= render partial: 'login_form' %>
+  <div class='welcome-message'>
+    <h1> Hola. Signin/register to play</h1>
   </div>
 <% end %>

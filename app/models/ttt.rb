@@ -2,6 +2,10 @@ class Ttt < ActiveRecord::Base
   has_many :moves
   belongs_to :user
 
+  class << self
+    attr_accessor :status
+  end
+
   #define the variables which will be used within the class methods
 
   @tttgrid = ["","","","","", "","","",""]
@@ -13,6 +17,7 @@ class Ttt < ActiveRecord::Base
   @player_two = '0'
   @computer = '0'
   @reset = false
+
   
   #set the winning lines
 

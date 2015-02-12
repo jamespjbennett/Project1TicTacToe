@@ -7,8 +7,8 @@ class TttsController < ApplicationController
   def create
     @game = Ttt.create(ttt_params)
     @game.user current_user
-
     if @game.save
+      Ttt.status = nil
       redirect_to ttt_path(@game)
     else
       render 'new'
@@ -20,6 +20,7 @@ class TttsController < ApplicationController
     @game = Ttt.find(params[:id])
     @game.user = current_user
     @showgrid = Ttt.split_grid
+    @status = Ttt.status
   end
 
   def update
@@ -41,26 +42,30 @@ class TttsController < ApplicationController
         user = current_user
         user.wins.nil? ? user.wins = 1 : user.wins += 1
         user.save
+        Ttt.status = 'win'
         Ttt.reset_all
-        render partial: '/ttts/winpage'
+        redirect_to ttt_path
       when (Ttt.winner & Ttt.player_two_moves.sort.combination(3).to_a).count == 1
         user = current_user
         user.losses.nil? ? user.losses = 1 : user.losses += 1
         user.save
+        @status = 'loss'
         Ttt.reset_all
-        render partial: '/ttts/losepage'
+        redirect_to ttt_path
       when Ttt.show_grid.exclude?("")
         user = current_user
         user.draws.nil? ? user.draws = 1 : user.draws += 1
         user.save
+        @status = 'draw'
         Ttt.reset_all
-        render partial: '/ttts/drawpage'
+        redirect_to ttt_path
       when (Ttt.winner & Ttt.computer_moves.sort.combination(3).to_a).count == 1
         user = current_user
         user.losses.nil? ? user.losses = 1 : user.losses += 1
         user.save
+        @status = 'loss'
         Ttt.reset_all
-        render partial: '/ttts/losepage'
+        redirect_to ttt_path
       else
       redirect_to ttt_path
     end
@@ -68,7 +73,7 @@ class TttsController < ApplicationController
 
   private
   def ttt_params
-    params.require(:ttt).permit(:computer )
+    params.require(:ttt).permit(:computer)
   end
 
 

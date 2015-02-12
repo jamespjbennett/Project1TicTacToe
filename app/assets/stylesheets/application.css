@@ -29,11 +29,11 @@
 
  .show-title {
   font-size: 50px;
+  margin: 2px;
  }
 
  .navmenu {
-  padding: 10px;
-  text-align: center;
+  padding: 5px;
  }
 
  .nav-menu-links {
@@ -41,10 +41,15 @@
  }
 
  .welcome-message {
-  background: #C43737;
+  background: grey;
   padding: 10px;
+  border-radius: 20px;
  }
 
  a {
   text-decoration: none;
+ }
+
+ a:visited {
+  color: grey;
  }

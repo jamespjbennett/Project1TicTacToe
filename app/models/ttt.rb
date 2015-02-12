@@ -12,6 +12,7 @@ class Ttt < ActiveRecord::Base
   @player_one = 'X'
   @player_two = '0'
   @computer = '0'
+  @reset = false
   
   #set the winning lines
 
@@ -34,6 +35,11 @@ class Ttt < ActiveRecord::Base
     @tttgrid
   end 
 
+  def self.computer_final_count
+    remaining_values = self.show_grid.inject(Hash.new(0)) {|total, e| total[e] += 1; total}
+    remaining_values[""]
+  end
+
   #split the grid array up so it's presented on the showpage
 
   def self.split_grid
@@ -54,6 +60,10 @@ class Ttt < ActiveRecord::Base
 
   def self.computer_moves
     @computer_array
+  end
+
+  def self.computer_draw_logic
+    @reset 
   end
 
   #after user has placed move v computer, the below method takes a random sample of all index values and

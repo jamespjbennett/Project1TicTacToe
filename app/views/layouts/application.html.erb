@@ -12,8 +12,10 @@
     <header>
       <h1 class='show-title'>NOUGHTS AND CROISSANTS</h1>
       <% if user_signed_in? %>
-        <%= link_to('New Game', new_ttt_path) %>
-        <%= link_to('User Leaderboard', users_path) %>
+        <div class='navmenu'>
+          <p class='nav-menu-links'><%= link_to('New Game', new_ttt_path) %>
+          <%= link_to('User Leaderboard', users_path) %></p>
+        </div>
       <% end %>
     </header>
     <%= yield %>

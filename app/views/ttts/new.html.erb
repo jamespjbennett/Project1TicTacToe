@@ -1,6 +1,6 @@
 <h3 class='new-game'>Welcome, <%= current_user.email %></h3>
 
-<p class='new-game'> Type 1 to play computer and anything else to play a friend</p>
+<p class='new-game'> Type 1 to play computer and leave blank to play against a friend!</p>
 
 <p class='new-game'><%= form_for @game do |f| %></p>
   <p class='new-game'><%= f.text_field :computer  %></p>

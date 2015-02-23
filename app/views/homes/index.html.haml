@@ -1,0 +1,8 @@
+-if user_signed_in? 
+  .welcome-message
+    %h1
+      Start a #{link_to 'New Game', new_ttt_path} ,or check out the #{link_to 'Leaderboard', users_path }
+-else
+  .welcome-message
+    %h1 
+      Hola. Signin/register to play

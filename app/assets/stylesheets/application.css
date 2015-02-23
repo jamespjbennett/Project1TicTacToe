@@ -20,6 +20,11 @@
   background: #5B77A1;
  }*/
 
+ @font-face {
+        font-family: 'Dense';
+        src: url(/assets/fonts/Dense.otf) format("truetype");
+    }
+
  body {
   font-family: 'Dense', arial;
   background: black;

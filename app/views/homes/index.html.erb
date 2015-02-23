@@ -1,9 +1,0 @@
-<% if user_signed_in? %>
-  <div class='welcome-message'>
-    <h1> Start a <%=link_to 'New Game', new_ttt_path %> or check out the <%= link_to 'Leaderboard', users_path %>.</h1>
-  </div>
-<% else %>
-  <div class='welcome-message'>
-    <h1> Hola. Signin/register to play</h1>
-  </div>
-<% end %>

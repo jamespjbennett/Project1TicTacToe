@@ -21,8 +21,8 @@
  }*/
 
  @font-face {
-        font-family: 'Dense';
-        src: url(/assets/fonts/Dense.otf) format("truetype");
+    font-family: 'Dense';
+    src: url(/assets/fonts/Dense.otf) format("truetype");
     }
 
  body {
@@ -32,48 +32,49 @@
  
  }
 
+ //colors
+ $white:  white;
+ $color_flush_mahogany_approx: #c43737;
+ $gray: grey;
+
+ //fonts
+ $font_0: Roboto Condensed;
+ $font_1: sans-serif;
+
  .show-title {
   font-size: 70px;
   margin: 1px;
  }
-
  .navmenu {
   padding: 5px;
  }
-
  .nav-menu-links {
   font-size: 20px;
   padding: 0;
+  li {
+    display: inline-block;
+    list-style: none;
+    padding-right: 10px;
+    border-right: thin dotted $white;
+  }
  }
- .nav-menu-links li {
-  display: inline-block;
-  list-style: none;
-  padding-right: 10px;
-  border-right: thin dotted white;
- }
-
  .welcome-message {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $font_0, $font_1;
   margin-top: 30px;
   display: inline-block;
  }
-
  .signin-form {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $font_0, $font_1;
+  li:hover {
+    background: #C43737;
+  }
  }
-
- .signin-form li:hover {
-  background: #C43737;
- }
-
  a {
   text-decoration: none;
+  &:visited {
+    color: $gray;
+  }
  }
-
- a:visited {
-  color: grey;
- }
-
  li {
   list-style: none;
   padding: 5px;

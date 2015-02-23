@@ -2,12 +2,10 @@
   width: 900px;
   margin: 0 auto;
 }
-
 .game-board {
   width: 350px;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $font_0, $font_1;
 }
-
 .grid-separator {
   vertical-align: top;
   text-align: center;
@@ -15,56 +13,44 @@
   display: inline-block;
   width: 100px;
   height: 100px;
-  border: thick solid black;
+  border: thick solid $black;
   border-radius: 10px;
   background: #C43737;
+  &:hover {
+    background: #C35959;
+  }
 }
-
-.grid-separator:hover {
-  background: #C35959;
-}
-
 .show-grid-value {
   margin: 0 auto;
   font-size: 60px;
   text-align: center;
   margin: 0;
 }
-
 .submit-move {
   padding: 10px;
 }
-
 .submit-button {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $font_0, $font_1;
   margin: 0 auto;
-  color: black;
+  color: $black;
   font-size: 20px;
   width: 200px;
   cursor: pointer;
 }
-
 .submit {
   display: inline-block;
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
-
 .radio-button {
   display: none;
+  &:checked + label {
+    background: $color_green;
+  }
 }
-
-.radio-button:checked + label {
-  /*margin: 0 auto;*/
-  background: green;
-  /*font-size: 60px;
-  text-align: center;
-  margin: 0;*/
-}
-
 .new-game {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $font_0, $font_1;
 }
 
 

@@ -1,0 +1,10 @@
+%h3.new-game
+  Welcome, #{current_user.email}
+%p.new-game 
+  Type 1 to play computer and leave blank to play against a friend!
+%p.new-game
+= form_for @game do |f|
+  %p.new-game= f.text_field :computer
+  %p.new-game= f.submit 'Start game', :class => 'submit-new-game-button'
+
+

@@ -1,0 +1,24 @@
+%html
+  %head
+    %title Project1TicTacToe
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto+Condensed:300", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    .container
+      %header
+        %h1.show-title NOUGHTS
+        %h1.show-title AND
+        %h1.show-title CROSSES
+        .navmenu
+          %ul.nav-menu-links
+            - if user_signed_in?
+              %li= link_to('N E W  G A M E', new_ttt_path)
+              %li= link_to('L E A D E R B O A R D', users_path)
+              %li= link_to('H O M E', root_path)
+              %li= link_to('L O G O U T', destroy_user_session_path, :method => :delete)
+            - else
+              %li= link_to('L O G I N', new_user_session_path)
+              %li= link_to('R E G I S T E R', new_user_registration_path)
+      = yield

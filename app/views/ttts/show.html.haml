@@ -1,24 +1,25 @@
-- if @status.nil?
-  = form_for(@game) do |f|
-    .submit-move
-      = f.submit 'Choose your square!', :class => 'submit-button'
-    - @showgrid.flatten.each_with_index do |value, index|
-      .grid-separator
-        - if value == ""
-          = radio_button_tag(:index, index, false, class: 'radio-button')
-          %label.submit{:for => "index_#{index}"}
-          %p.show-grid-value= value
-        - else
-          %span.show-grid-value= value
-- elsif @status == 'win'
-  %h3 YOU WIN!!!
-  = render partial: 'results_display'
-- elsif @status == 'draw'
-  %h3 YOU DREW!!!
-  = render partial: 'results_display'
-- elsif @status == 'loss'
-  %h3 YOU LOSE!!!
-  = render partial: 'results_display'
+.game-board
+  - if @status.nil?
+    = form_for(@game) do |f|
+      .submit-move
+        = f.submit 'Choose your square!', :class => 'submit-button'
+      - @showgrid.flatten.each_with_index do |value, index|
+        .grid-separator
+          - if value == ""
+            = radio_button_tag(:index, index, false, class: 'radio-button')
+            %label.submit{:for => "index_#{index}"}
+            %p.show-grid-value= value
+          - else
+            %span.show-grid-value= value
+  - elsif @status == 'win'
+    %h3 YOU WIN!!!
+    = render partial: 'results_display'
+  - elsif @status == 'draw'
+    %h3 YOU DREW!!!
+    = render partial: 'results_display'
+  - elsif @status == 'loss'
+    %h3 YOU LOSE!!!
+    = render partial: 'results_display'
 
 
 

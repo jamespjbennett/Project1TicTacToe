@@ -1,0 +1,14 @@
+- @users.order("wins desc").each do |user|
+  %table.user-table
+    %th Email
+    %th Number of Wins
+    %th Number of Losses
+    %th Number of Draws
+    - if user.wins != nil
+      %tr
+        %td= user.email
+        %td= user.wins
+        %td= user.losses
+        %td= user.draws
+
+
